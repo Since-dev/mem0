@@ -22,20 +22,20 @@ importers:
     dependencies:
       mem0ai:
         specifier: ^3.0.7
-        version: 3.0.7(@anthropic-ai/sdk@0.91.1(zod@3.25.76))(@azure/identity@4.13.1)(@azure/search-documents@12.2.0)(@cloudflare/workers-types@4.20260610.1)(@google/genai@1.52.0)(@langchain/core@1.1.48(openai@6.26.0(ws@8.21.0)(zod@3.25.76))(ws@8.21.0))(@mistralai/mistralai@2.2.1)(@qdrant/js-client-rest@1.18.0(typescript@6.0.3))(@supabase/supabase-js@2.108.1)(@types/jest@29.5.14)(@types/pg@8.11.0)(better-sqlite3@12.10.0)(cloudflare@4.5.0)(compromise@14.15.1)(groq-sdk@0.3.0)(natural@8.1.1)(ollama@0.5.18)(pg@8.11.3)(redis@5.12.1)(ws@8.21.0)
+        version: 3.0.7(@anthropic-ai/sdk@0.40.1)(@azure/identity@4.13.1(supports-color@7.2.0))(@azure/search-documents@12.2.0(supports-color@7.2.0))(@cloudflare/workers-types@4.20260610.1)(@google/genai@1.52.0(supports-color@7.2.0))(@langchain/core@1.1.48(openai@6.26.0(ws@8.21.0)(zod@3.25.76))(ws@8.21.0))(@mistralai/mistralai@1.15.1)(@qdrant/js-client-rest@1.18.0(typescript@6.0.3))(@supabase/supabase-js@2.108.1)(@types/jest@29.5.14)(@types/pg@8.11.0)(better-sqlite3@12.10.0)(cloudflare@4.5.0)(compromise@14.15.1)(debug@4.4.3(supports-color@7.2.0))(groq-sdk@0.3.0)(natural@8.1.1)(ollama@0.5.18)(pg@8.11.3)(redis@4.7.1)(supports-color@7.2.0)(ws@8.21.0)
     devDependencies:
       '@earendil-works/pi-ai':
         specifier: ^0.79.0
-        version: 0.79.1(ws@8.21.0)(zod@3.25.76)
+        version: 0.79.1(supports-color@7.2.0)(ws@8.21.0)(zod@3.25.76)
       '@earendil-works/pi-coding-agent':
         specifier: ^0.79.0
-        version: 0.79.1(ws@8.21.0)(zod@3.25.76)
+        version: 0.79.1(supports-color@7.2.0)(ws@8.21.0)(zod@3.25.76)
       '@types/node':
         specifier: ^25.9.2
         version: 25.9.2
       tsup:
         specifier: ^8.5.0
-        version: 8.5.1(jiti@2.7.0)(postcss@8.5.23)(typescript@6.0.3)(yaml@2.9.0)
+        version: 8.5.1(jiti@2.7.0)(postcss@8.5.23)(supports-color@7.2.0)(typescript@6.0.3)(yaml@2.9.0)
       typebox:
         specifier: ^1.2.3
         version: 1.2.8
@@ -47,6 +47,9 @@ importers:
         version: 4.1.11(@types/node@25.9.2)(vite@8.0.16(@types/node@25.9.2)(esbuild@0.28.1)(jiti@2.7.0)(yaml@2.9.0))
 
 packages:
+
+  '@anthropic-ai/sdk@0.40.1':
+    resolution: {integrity: sha512-DJMWm8lTEM9Lk/MSFL+V+ugF7jKOn0M2Ujvb5fN8r2nY14aHbGPZ1k6sgjL+tpJ3VuOGJNG+4R83jEpOuYPv8w==}
 
   '@anthropic-ai/sdk@0.91.1':
     resolution: {integrity: sha512-LAmu761tSN9r66ixvmciswUj/ZC+1Q4iAfpedTfSVLeswRwnY3n2Nb6Tsk+cLPP28aLOPWeMgIuTuCcMC6W/iw==}
@@ -524,6 +527,9 @@ packages:
     resolution: {integrity: sha512-ABnA53mdfkGZwOFUdZNv2S0CWGO/EIuPj8Vv9xmBFmSYg/qFc7ihO6q5FcQjvoE67kZpWkEc4AhD6B/os04yuA==}
     engines: {node: '>= 10'}
 
+  '@mistralai/mistralai@1.15.1':
+    resolution: {integrity: sha512-fb995eiz3r0KsBGtRjFV+/iLbX+UpfalxpF+YitT3R6ukrPD4PN+FGwwmYcRFhNAzVzDUtTVxQYnjQWEnwV5nw==}
+
   '@mistralai/mistralai@2.2.1':
     resolution: {integrity: sha512-uKU8CZmL2RzYKmplsU01hii4p3pe4HqJefpWNRWXm1Tcm0Sm4xXfwSLIy4k7ZCPlbETCGcp69E7hZs+WOJ5itQ==}
 
@@ -579,11 +585,20 @@ packages:
     resolution: {integrity: sha512-oQG/FejNpItrxRHoyctYvT3rwGZOnK4jr3JdppO/c78ktDvkWiPXPHNsrDf33K9sZdRb6PR7gi4noIapu5q4HA==}
     engines: {node: '>=18.0.0', pnpm: '>=8'}
 
+  '@redis/bloom@1.2.0':
+    resolution: {integrity: sha512-HG2DFjYKbpNmVXsa0keLHp/3leGJz1mjh09f2RLGGLQZzSHpkmZWuwJbAvo3QcRY8p80m5+ZdXZdYOSBLlp7Cg==}
+    peerDependencies:
+      '@redis/client': ^1.0.0
+
   '@redis/bloom@5.12.1':
     resolution: {integrity: sha512-PUUfv+ms7jgPSBVoo/DN4AkPHj4D5TZSd6SbJX7egzBplkYUcKmHRE8RKia7UtZ8bSQbLguLvxVO+asKtQfZWA==}
     engines: {node: '>= 18.19.0'}
     peerDependencies:
       '@redis/client': ^5.12.1
+
+  '@redis/client@1.6.1':
+    resolution: {integrity: sha512-/KCsg3xSlR+nCK8/8ZYSknYxvXHwubJrU82F3Lm1Fp6789VQ0/3RJKfsmRXjqfaTA++23CvC3hqmqe/2GEt6Kw==}
+    engines: {node: '>=14'}
 
   '@redis/client@5.12.1':
     resolution: {integrity: sha512-7aPGWeqA3uFm43o19umzdl16CEjK/JQGtSXVPevplTaOU3VJA/rseBC1QvYUz9lLDIMBimc4SW/zrW4S89BaCA==}
@@ -597,17 +612,37 @@ packages:
       '@opentelemetry/api':
         optional: true
 
+  '@redis/graph@1.1.1':
+    resolution: {integrity: sha512-FEMTcTHZozZciLRl6GiiIB4zGm5z5F3F6a6FZCyrfxdKOhFlGkiAqlexWMBzCi4DcRoyiOsuLfW+cjlGWyExOw==}
+    peerDependencies:
+      '@redis/client': ^1.0.0
+
+  '@redis/json@1.0.7':
+    resolution: {integrity: sha512-6UyXfjVaTBTJtKNG4/9Z8PSpKE6XgSyEb8iwaqDcy+uKrd/DGYHTWkUdnQDyzm727V7p21WUMhsqz5oy65kPcQ==}
+    peerDependencies:
+      '@redis/client': ^1.0.0
+
   '@redis/json@5.12.1':
     resolution: {integrity: sha512-eOze75esLve4vfqDel7aMX08CNaiLLQS2fV8mpRN9NxPe1rVR4vQyYiW/OgtGUysF6QOr9ANhfxABKNOJfXdKg==}
     engines: {node: '>= 18.19.0'}
     peerDependencies:
       '@redis/client': ^5.12.1
 
+  '@redis/search@1.2.0':
+    resolution: {integrity: sha512-tYoDBbtqOVigEDMAcTGsRlMycIIjwMCgD8eR2t0NANeQmgK/lvxNAvYyb6bZDD4frHRhIHkJu2TBRvB0ERkOmw==}
+    peerDependencies:
+      '@redis/client': ^1.0.0
+
   '@redis/search@5.12.1':
     resolution: {integrity: sha512-ItlxbxC9cKI6IU1TLWoczwJCRb6TdmkEpWv05UrPawqaAnWGRu3rcIqsc5vN483T2fSociuyV1UkWIL5I4//2w==}
     engines: {node: '>= 18.19.0'}
     peerDependencies:
       '@redis/client': ^5.12.1
+
+  '@redis/time-series@1.1.0':
+    resolution: {integrity: sha512-c1Q99M5ljsIuc4YdaCwfUEXsofakb9c8+Zse2qxTadu8TalLXuAESzLvFAvNVbkmSlvlzIQOLpBCmWI9wTOt+g==}
+    peerDependencies:
+      '@redis/client': ^1.0.0
 
   '@redis/time-series@5.12.1':
     resolution: {integrity: sha512-c6JL6E3EcZJuNqKFz+KM+l9l5mpcQiKvTwgA3blt5glWJ8hjDk0yeHN3beE/MpqYIQ8UEX44ItQzgkE/gCBELQ==}
@@ -1361,8 +1396,8 @@ packages:
   fix-dts-default-cjs-exports@1.0.1:
     resolution: {integrity: sha512-pVIECanWFC61Hzl2+oOCtoJ3F17kglZC/6N94eRWycFgBH35hHx0Li604ZIzhseh97mf2p0cv7vVrOZGoqhlEg==}
 
-  follow-redirects@1.16.0:
-    resolution: {integrity: sha512-y5rN/uOsadFT/JfYwhxRS5R7Qce+g3zG97+JrtFZlC9klX/W5hD7iiLzScI4nZqUS7DNUdhPgw4xI8W2LuXlUw==}
+  follow-redirects@1.16.2:
+    resolution: {integrity: sha512-/kVP2U8z596Ia0gwFrwyIeo74ta5aVmSeU1FfAUMAmcEP5EP7zydmag3SLiN64NaRKef3lxsq7i/g7ltJQDGow==}
     engines: {node: '>=4.0'}
     peerDependencies:
       debug: '*'
@@ -1403,6 +1438,10 @@ packages:
   gcp-metadata@8.1.2:
     resolution: {integrity: sha512-zV/5HKTfCeKWnxG0Dmrw51hEWFGfcF2xiXqcA3+J90WDuP0SvoiSO5ORvcBsifmx/FoIjgQN3oNOGaQ5PhLFkg==}
     engines: {node: '>=18'}
+
+  generic-pool@3.9.0:
+    resolution: {integrity: sha512-hymDOu5B53XvN4QT9dBmZxPX4CWhBPPLguTZ9MMFeFa/Kg0xWVfylOVNlJji/E7yTZWFd/q9GO5TxDLq156D7g==}
+    engines: {node: '>= 4'}
 
   get-east-asian-width@1.6.0:
     resolution: {integrity: sha512-QRbvDIbx6YklUe6RxeTeleMR0yv3cYH6PsPZHcnVn7xv7zO1BHN8r0XETu8n6Ye3Q+ahtSarc3WgtNWmehIBfA==}
@@ -2129,6 +2168,9 @@ packages:
     resolution: {integrity: sha512-GDhwkLfywWL2s6vEjyhri+eXmfH6j1L7JE27WhqLeYzoh/A3DBaYGEj2H/HFZCn/kMfim73FXxEJTw06WtxQwg==}
     engines: {node: '>= 14.18.0'}
 
+  redis@4.7.1:
+    resolution: {integrity: sha512-S1bJDnqLftzHXHP8JsT5II/CtHWQrASX5K96REjWjlmWKrviSOLWmM7QnRLstAWsu1VBBV1ffV6DzCvxNP0UJQ==}
+
   redis@5.12.1:
     resolution: {integrity: sha512-LDsoVvb/CpoV9EN3FXvgvSHNJWuCIzl9MiO3ppOevuGLpSGJhwfQjpEwfFJcQvNSddHADDdZaWx0HnmMxRXG7g==}
     engines: {node: '>= 18.19.0'}
@@ -2523,6 +2565,9 @@ packages:
     resolution: {integrity: sha512-LKYU1iAXJXUgAXn9URjiu+MWhyUXHsvfp7mcuYm9dSUKK0/CjtrUwFAxD82/mCWbtLsGjFIad0wIsod4zrTAEQ==}
     engines: {node: '>=0.4'}
 
+  yallist@4.0.0:
+    resolution: {integrity: sha512-3wdGidZyq5PB084XLES5TpOSRA3wjXAlIWMhum2kRcv/41Sn2emQ0dycQW4uZXLejwKvg6EsvbdlVL+FYEct7A==}
+
   yaml@2.9.0:
     resolution: {integrity: sha512-2AvhNX3mb8zd6Zy7INTtSpl1F15HW6Wnqj0srWlkKLcpYl/gMIMJiyuGq2KeI2YFxUPjdlB+3Lc10seMLtL4cA==}
     engines: {node: '>= 14.6'}
@@ -2540,6 +2585,18 @@ packages:
     resolution: {integrity: sha512-ytENFjIJFl2UwYglde2jchW2Hwm4GJFLDiSXWdTrJQBIN9Fcyp7n4DhxJEiWNAJMV1/BqWfW/kkg71UDcHJyTQ==}
 
 snapshots:
+
+  '@anthropic-ai/sdk@0.40.1':
+    dependencies:
+      '@types/node': 18.19.130
+      '@types/node-fetch': 2.6.13
+      abort-controller: 3.0.0
+      agentkeepalive: 4.6.0
+      form-data-encoder: 1.7.2
+      formdata-node: 4.4.1
+      node-fetch: 2.7.0
+    transitivePeerDependencies:
+      - encoding
 
   '@anthropic-ai/sdk@0.91.1(zod@3.25.76)':
     dependencies:
@@ -2774,44 +2831,44 @@ snapshots:
     dependencies:
       tslib: 2.8.1
 
-  '@azure/core-auth@1.10.1':
+  '@azure/core-auth@1.10.1(supports-color@7.2.0)':
     dependencies:
       '@azure/abort-controller': 2.1.2
-      '@azure/core-util': 1.13.1
+      '@azure/core-util': 1.13.1(supports-color@7.2.0)
       tslib: 2.8.1
     transitivePeerDependencies:
       - supports-color
 
-  '@azure/core-client@1.10.2':
+  '@azure/core-client@1.10.2(supports-color@7.2.0)':
     dependencies:
       '@azure/abort-controller': 2.1.2
-      '@azure/core-auth': 1.10.1
-      '@azure/core-rest-pipeline': 1.24.0
+      '@azure/core-auth': 1.10.1(supports-color@7.2.0)
+      '@azure/core-rest-pipeline': 1.24.0(supports-color@7.2.0)
       '@azure/core-tracing': 1.3.1
-      '@azure/core-util': 1.13.1
-      '@azure/logger': 1.3.0
+      '@azure/core-util': 1.13.1(supports-color@7.2.0)
+      '@azure/logger': 1.3.0(supports-color@7.2.0)
       tslib: 2.8.1
     transitivePeerDependencies:
       - supports-color
 
-  '@azure/core-http-compat@2.4.0(@azure/core-client@1.10.2)(@azure/core-rest-pipeline@1.24.0)':
+  '@azure/core-http-compat@2.4.0(@azure/core-client@1.10.2(supports-color@7.2.0))(@azure/core-rest-pipeline@1.24.0(supports-color@7.2.0))':
     dependencies:
       '@azure/abort-controller': 2.1.2
-      '@azure/core-client': 1.10.2
-      '@azure/core-rest-pipeline': 1.24.0
+      '@azure/core-client': 1.10.2(supports-color@7.2.0)
+      '@azure/core-rest-pipeline': 1.24.0(supports-color@7.2.0)
 
   '@azure/core-paging@1.6.2':
     dependencies:
       tslib: 2.8.1
 
-  '@azure/core-rest-pipeline@1.24.0':
+  '@azure/core-rest-pipeline@1.24.0(supports-color@7.2.0)':
     dependencies:
       '@azure/abort-controller': 2.1.2
-      '@azure/core-auth': 1.10.1
+      '@azure/core-auth': 1.10.1(supports-color@7.2.0)
       '@azure/core-tracing': 1.3.1
-      '@azure/core-util': 1.13.1
-      '@azure/logger': 1.3.0
-      '@typespec/ts-http-runtime': 0.3.6
+      '@azure/core-util': 1.13.1(supports-color@7.2.0)
+      '@azure/logger': 1.3.0(supports-color@7.2.0)
+      '@typespec/ts-http-runtime': 0.3.6(supports-color@7.2.0)
       tslib: 2.8.1
     transitivePeerDependencies:
       - supports-color
@@ -2820,23 +2877,23 @@ snapshots:
     dependencies:
       tslib: 2.8.1
 
-  '@azure/core-util@1.13.1':
+  '@azure/core-util@1.13.1(supports-color@7.2.0)':
     dependencies:
       '@azure/abort-controller': 2.1.2
-      '@typespec/ts-http-runtime': 0.3.6
+      '@typespec/ts-http-runtime': 0.3.6(supports-color@7.2.0)
       tslib: 2.8.1
     transitivePeerDependencies:
       - supports-color
 
-  '@azure/identity@4.13.1':
+  '@azure/identity@4.13.1(supports-color@7.2.0)':
     dependencies:
       '@azure/abort-controller': 2.1.2
-      '@azure/core-auth': 1.10.1
-      '@azure/core-client': 1.10.2
-      '@azure/core-rest-pipeline': 1.24.0
+      '@azure/core-auth': 1.10.1(supports-color@7.2.0)
+      '@azure/core-client': 1.10.2(supports-color@7.2.0)
+      '@azure/core-rest-pipeline': 1.24.0(supports-color@7.2.0)
       '@azure/core-tracing': 1.3.1
-      '@azure/core-util': 1.13.1
-      '@azure/logger': 1.3.0
+      '@azure/core-util': 1.13.1(supports-color@7.2.0)
+      '@azure/logger': 1.3.0(supports-color@7.2.0)
       '@azure/msal-browser': 5.12.0
       '@azure/msal-node': 5.2.3
       open: 10.2.0
@@ -2844,9 +2901,9 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@azure/logger@1.3.0':
+  '@azure/logger@1.3.0(supports-color@7.2.0)':
     dependencies:
-      '@typespec/ts-http-runtime': 0.3.6
+      '@typespec/ts-http-runtime': 0.3.6(supports-color@7.2.0)
       tslib: 2.8.1
     transitivePeerDependencies:
       - supports-color
@@ -2862,16 +2919,16 @@ snapshots:
       '@azure/msal-common': 16.7.0
       jsonwebtoken: 9.0.3
 
-  '@azure/search-documents@12.2.0':
+  '@azure/search-documents@12.2.0(supports-color@7.2.0)':
     dependencies:
-      '@azure/core-auth': 1.10.1
-      '@azure/core-client': 1.10.2
-      '@azure/core-http-compat': 2.4.0(@azure/core-client@1.10.2)(@azure/core-rest-pipeline@1.24.0)
+      '@azure/core-auth': 1.10.1(supports-color@7.2.0)
+      '@azure/core-client': 1.10.2(supports-color@7.2.0)
+      '@azure/core-http-compat': 2.4.0(@azure/core-client@1.10.2(supports-color@7.2.0))(@azure/core-rest-pipeline@1.24.0(supports-color@7.2.0))
       '@azure/core-paging': 1.6.2
-      '@azure/core-rest-pipeline': 1.24.0
+      '@azure/core-rest-pipeline': 1.24.0(supports-color@7.2.0)
       '@azure/core-tracing': 1.3.1
-      '@azure/core-util': 1.13.1
-      '@azure/logger': 1.3.0
+      '@azure/core-util': 1.13.1(supports-color@7.2.0)
+      '@azure/logger': 1.3.0(supports-color@7.2.0)
       events: 3.3.0
       tslib: 2.8.1
     transitivePeerDependencies:
@@ -2891,9 +2948,9 @@ snapshots:
 
   '@cloudflare/workers-types@4.20260610.1': {}
 
-  '@earendil-works/pi-agent-core@0.79.1(ws@8.21.0)(zod@3.25.76)':
+  '@earendil-works/pi-agent-core@0.79.1(supports-color@7.2.0)(ws@8.21.0)(zod@3.25.76)':
     dependencies:
-      '@earendil-works/pi-ai': 0.79.1(ws@8.21.0)(zod@3.25.76)
+      '@earendil-works/pi-ai': 0.79.1(supports-color@7.2.0)(ws@8.21.0)(zod@3.25.76)
       ignore: 7.0.5
       typebox: 1.1.38
       yaml: 2.9.0
@@ -2905,15 +2962,15 @@ snapshots:
       - ws
       - zod
 
-  '@earendil-works/pi-ai@0.79.1(ws@8.21.0)(zod@3.25.76)':
+  '@earendil-works/pi-ai@0.79.1(supports-color@7.2.0)(ws@8.21.0)(zod@3.25.76)':
     dependencies:
       '@anthropic-ai/sdk': 0.91.1(zod@3.25.76)
       '@aws-sdk/client-bedrock-runtime': 3.1048.0
-      '@google/genai': 1.52.0
+      '@google/genai': 1.52.0(supports-color@7.2.0)
       '@mistralai/mistralai': 2.2.1
       '@smithy/node-http-handler': 4.7.3
-      http-proxy-agent: 7.0.2
-      https-proxy-agent: 7.0.6
+      http-proxy-agent: 7.0.2(supports-color@7.2.0)
+      https-proxy-agent: 7.0.6(supports-color@7.2.0)
       openai: 6.26.0(ws@8.21.0)(zod@3.25.76)
       partial-json: 0.1.7
       typebox: 1.1.38
@@ -2925,10 +2982,10 @@ snapshots:
       - ws
       - zod
 
-  '@earendil-works/pi-coding-agent@0.79.1(ws@8.21.0)(zod@3.25.76)':
+  '@earendil-works/pi-coding-agent@0.79.1(supports-color@7.2.0)(ws@8.21.0)(zod@3.25.76)':
     dependencies:
-      '@earendil-works/pi-agent-core': 0.79.1(ws@8.21.0)(zod@3.25.76)
-      '@earendil-works/pi-ai': 0.79.1(ws@8.21.0)(zod@3.25.76)
+      '@earendil-works/pi-agent-core': 0.79.1(supports-color@7.2.0)(ws@8.21.0)(zod@3.25.76)
+      '@earendil-works/pi-ai': 0.79.1(supports-color@7.2.0)(ws@8.21.0)(zod@3.25.76)
       '@earendil-works/pi-tui': 0.79.1
       '@silvia-odwyer/photon-node': 0.3.4
       chalk: 5.6.2
@@ -3053,9 +3110,9 @@ snapshots:
   '@esbuild/win32-x64@0.28.1':
     optional: true
 
-  '@google/genai@1.52.0':
+  '@google/genai@1.52.0(supports-color@7.2.0)':
     dependencies:
-      google-auth-library: 10.7.0
+      google-auth-library: 10.7.0(supports-color@7.2.0)
       p-retry: 4.6.2
       protobufjs: 7.6.5
       ws: 8.21.0
@@ -3155,6 +3212,15 @@ snapshots:
       '@mariozechner/clipboard-win32-x64-msvc': 0.3.9
     optional: true
 
+  '@mistralai/mistralai@1.15.1':
+    dependencies:
+      ws: 8.21.0
+      zod: 4.4.3
+      zod-to-json-schema: 3.25.2(zod@4.4.3)
+    transitivePeerDependencies:
+      - bufferutil
+      - utf-8-validate
+
   '@mistralai/mistralai@2.2.1':
     dependencies:
       ws: 8.21.0
@@ -3207,21 +3273,47 @@ snapshots:
 
   '@qdrant/openapi-typescript-fetch@1.2.6': {}
 
+  '@redis/bloom@1.2.0(@redis/client@1.6.1)':
+    dependencies:
+      '@redis/client': 1.6.1
+
   '@redis/bloom@5.12.1(@redis/client@5.12.1)':
     dependencies:
       '@redis/client': 5.12.1
+
+  '@redis/client@1.6.1':
+    dependencies:
+      cluster-key-slot: 1.1.2
+      generic-pool: 3.9.0
+      yallist: 4.0.0
 
   '@redis/client@5.12.1':
     dependencies:
       cluster-key-slot: 1.1.2
 
+  '@redis/graph@1.1.1(@redis/client@1.6.1)':
+    dependencies:
+      '@redis/client': 1.6.1
+
+  '@redis/json@1.0.7(@redis/client@1.6.1)':
+    dependencies:
+      '@redis/client': 1.6.1
+
   '@redis/json@5.12.1(@redis/client@5.12.1)':
     dependencies:
       '@redis/client': 5.12.1
 
+  '@redis/search@1.2.0(@redis/client@1.6.1)':
+    dependencies:
+      '@redis/client': 1.6.1
+
   '@redis/search@5.12.1(@redis/client@5.12.1)':
     dependencies:
       '@redis/client': 5.12.1
+
+  '@redis/time-series@1.1.0(@redis/client@1.6.1)':
+    dependencies:
+      '@redis/client': 1.6.1
 
   '@redis/time-series@5.12.1(@redis/client@5.12.1)':
     dependencies:
@@ -3509,10 +3601,10 @@ snapshots:
     dependencies:
       '@types/yargs-parser': 21.0.3
 
-  '@typespec/ts-http-runtime@0.3.6':
+  '@typespec/ts-http-runtime@0.3.6(supports-color@7.2.0)':
     dependencies:
-      http-proxy-agent: 7.0.2
-      https-proxy-agent: 7.0.6
+      http-proxy-agent: 7.0.2(supports-color@7.2.0)
+      https-proxy-agent: 7.0.6(supports-color@7.2.0)
       tslib: 2.8.1
     transitivePeerDependencies:
       - supports-color
@@ -3568,9 +3660,9 @@ snapshots:
 
   afinn-165@2.0.2: {}
 
-  agent-base@6.0.2:
+  agent-base@6.0.2(supports-color@7.2.0):
     dependencies:
-      debug: 4.4.3
+      debug: 4.4.3(supports-color@7.2.0)
     transitivePeerDependencies:
       - supports-color
 
@@ -3598,11 +3690,11 @@ snapshots:
 
   asynckit@0.4.0: {}
 
-  axios@1.20.0:
+  axios@1.20.0(debug@4.4.3(supports-color@7.2.0))(supports-color@7.2.0):
     dependencies:
-      follow-redirects: 1.16.0
+      follow-redirects: 1.16.2(debug@4.4.3(supports-color@7.2.0))
       form-data: 4.0.6
-      https-proxy-agent: 5.0.1
+      https-proxy-agent: 5.0.1(supports-color@7.2.0)
       proxy-from-env: 2.1.0
     transitivePeerDependencies:
       - debug
@@ -3735,9 +3827,11 @@ snapshots:
 
   data-uri-to-buffer@4.0.1: {}
 
-  debug@4.4.3:
+  debug@4.4.3(supports-color@7.2.0):
     dependencies:
       ms: 2.1.3
+    optionalDependencies:
+      supports-color: 7.2.0
 
   decompress-response@6.0.0:
     dependencies:
@@ -3890,7 +3984,9 @@ snapshots:
       mlly: 1.8.2
       rollup: 4.61.1
 
-  follow-redirects@1.16.0: {}
+  follow-redirects@1.16.2(debug@4.4.3(supports-color@7.2.0)):
+    optionalDependencies:
+      debug: 4.4.3(supports-color@7.2.0)
 
   form-data-encoder@1.7.2: {}
 
@@ -3918,21 +4014,23 @@ snapshots:
 
   function-bind@1.1.2: {}
 
-  gaxios@7.1.5:
+  gaxios@7.1.5(supports-color@7.2.0):
     dependencies:
       extend: 3.0.2
-      https-proxy-agent: 7.0.6
+      https-proxy-agent: 7.0.6(supports-color@7.2.0)
       node-fetch: 3.3.2
     transitivePeerDependencies:
       - supports-color
 
-  gcp-metadata@8.1.2:
+  gcp-metadata@8.1.2(supports-color@7.2.0):
     dependencies:
-      gaxios: 7.1.5
+      gaxios: 7.1.5(supports-color@7.2.0)
       google-logging-utils: 1.1.3
       json-bigint: 1.0.0
     transitivePeerDependencies:
       - supports-color
+
+  generic-pool@3.9.0: {}
 
   get-east-asian-width@1.6.0: {}
 
@@ -3962,12 +4060,12 @@ snapshots:
       minipass: 7.1.3
       path-scurry: 2.0.2
 
-  google-auth-library@10.7.0:
+  google-auth-library@10.7.0(supports-color@7.2.0):
     dependencies:
       base64-js: 1.5.1
       ecdsa-sig-formatter: 1.0.11
-      gaxios: 7.1.5
-      gcp-metadata: 8.1.2
+      gaxios: 7.1.5(supports-color@7.2.0)
+      gcp-metadata: 8.1.2(supports-color@7.2.0)
       google-logging-utils: 1.1.3
       jws: 4.0.1
     transitivePeerDependencies:
@@ -4013,24 +4111,24 @@ snapshots:
     dependencies:
       lru-cache: 11.5.1
 
-  http-proxy-agent@7.0.2:
+  http-proxy-agent@7.0.2(supports-color@7.2.0):
     dependencies:
       agent-base: 7.1.4
-      debug: 4.4.3
+      debug: 4.4.3(supports-color@7.2.0)
     transitivePeerDependencies:
       - supports-color
 
-  https-proxy-agent@5.0.1:
+  https-proxy-agent@5.0.1(supports-color@7.2.0):
     dependencies:
-      agent-base: 6.0.2
-      debug: 4.4.3
+      agent-base: 6.0.2(supports-color@7.2.0)
+      debug: 4.4.3(supports-color@7.2.0)
     transitivePeerDependencies:
       - supports-color
 
-  https-proxy-agent@7.0.6:
+  https-proxy-agent@7.0.6(supports-color@7.2.0):
     dependencies:
       agent-base: 7.1.4
-      debug: 4.4.3
+      debug: 4.4.3(supports-color@7.2.0)
     transitivePeerDependencies:
       - supports-color
 
@@ -4240,20 +4338,20 @@ snapshots:
       crypt: 0.0.2
       is-buffer: 1.1.6
 
-  mem0ai@3.0.7(@anthropic-ai/sdk@0.91.1(zod@3.25.76))(@azure/identity@4.13.1)(@azure/search-documents@12.2.0)(@cloudflare/workers-types@4.20260610.1)(@google/genai@1.52.0)(@langchain/core@1.1.48(openai@6.26.0(ws@8.21.0)(zod@3.25.76))(ws@8.21.0))(@mistralai/mistralai@2.2.1)(@qdrant/js-client-rest@1.18.0(typescript@6.0.3))(@supabase/supabase-js@2.108.1)(@types/jest@29.5.14)(@types/pg@8.11.0)(better-sqlite3@12.10.0)(cloudflare@4.5.0)(compromise@14.15.1)(groq-sdk@0.3.0)(natural@8.1.1)(ollama@0.5.18)(pg@8.11.3)(redis@5.12.1)(ws@8.21.0):
+  mem0ai@3.0.7(@anthropic-ai/sdk@0.40.1)(@azure/identity@4.13.1(supports-color@7.2.0))(@azure/search-documents@12.2.0(supports-color@7.2.0))(@cloudflare/workers-types@4.20260610.1)(@google/genai@1.52.0(supports-color@7.2.0))(@langchain/core@1.1.48(openai@6.26.0(ws@8.21.0)(zod@3.25.76))(ws@8.21.0))(@mistralai/mistralai@1.15.1)(@qdrant/js-client-rest@1.18.0(typescript@6.0.3))(@supabase/supabase-js@2.108.1)(@types/jest@29.5.14)(@types/pg@8.11.0)(better-sqlite3@12.10.0)(cloudflare@4.5.0)(compromise@14.15.1)(debug@4.4.3(supports-color@7.2.0))(groq-sdk@0.3.0)(natural@8.1.1)(ollama@0.5.18)(pg@8.11.3)(redis@4.7.1)(supports-color@7.2.0)(ws@8.21.0):
     dependencies:
-      '@anthropic-ai/sdk': 0.91.1(zod@3.25.76)
-      '@azure/identity': 4.13.1
-      '@azure/search-documents': 12.2.0
+      '@anthropic-ai/sdk': 0.40.1
+      '@azure/identity': 4.13.1(supports-color@7.2.0)
+      '@azure/search-documents': 12.2.0(supports-color@7.2.0)
       '@cloudflare/workers-types': 4.20260610.1
-      '@google/genai': 1.52.0
+      '@google/genai': 1.52.0(supports-color@7.2.0)
       '@langchain/core': 1.1.48(openai@6.26.0(ws@8.21.0)(zod@3.25.76))(ws@8.21.0)
-      '@mistralai/mistralai': 2.2.1
+      '@mistralai/mistralai': 1.15.1
       '@qdrant/js-client-rest': 1.18.0(typescript@6.0.3)
       '@supabase/supabase-js': 2.108.1
       '@types/jest': 29.5.14
       '@types/pg': 8.11.0
-      axios: 1.20.0
+      axios: 1.20.0(debug@4.4.3(supports-color@7.2.0))(supports-color@7.2.0)
       better-sqlite3: 12.10.0
       cloudflare: 4.5.0
       compromise: 14.15.1
@@ -4262,7 +4360,7 @@ snapshots:
       ollama: 0.5.18
       openai: 4.104.0(ws@8.21.0)(zod@3.25.76)
       pg: 8.11.3
-      redis: 5.12.1
+      redis: 4.7.1
       uuid: 14.0.0
       zod: 3.25.76
     transitivePeerDependencies:
@@ -4648,6 +4746,15 @@ snapshots:
 
   readdirp@4.1.2: {}
 
+  redis@4.7.1:
+    dependencies:
+      '@redis/bloom': 1.2.0(@redis/client@1.6.1)
+      '@redis/client': 1.6.1
+      '@redis/graph': 1.1.1(@redis/client@1.6.1)
+      '@redis/json': 1.0.7(@redis/client@1.6.1)
+      '@redis/search': 1.2.0(@redis/client@1.6.1)
+      '@redis/time-series': 1.1.0(@redis/client@1.6.1)
+
   redis@5.12.1:
     dependencies:
       '@redis/bloom': 5.12.1(@redis/client@5.12.1)
@@ -4849,13 +4956,13 @@ snapshots:
 
   tslib@2.8.1: {}
 
-  tsup@8.5.1(jiti@2.7.0)(postcss@8.5.23)(typescript@6.0.3)(yaml@2.9.0):
+  tsup@8.5.1(jiti@2.7.0)(postcss@8.5.23)(supports-color@7.2.0)(typescript@6.0.3)(yaml@2.9.0):
     dependencies:
       bundle-require: 5.1.0(esbuild@0.28.1)
       cac: 6.7.14
       chokidar: 4.0.3
       consola: 3.4.2
-      debug: 4.4.3
+      debug: 4.4.3(supports-color@7.2.0)
       esbuild: 0.28.1
       fix-dts-default-cjs-exports: 1.0.1
       joycon: 3.1.1
@@ -4988,6 +5095,8 @@ snapshots:
   xml-naming@0.1.0: {}
 
   xtend@4.0.2: {}
+
+  yallist@4.0.0: {}
 
   yaml@2.9.0: {}
 
