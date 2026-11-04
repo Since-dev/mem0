@@ -35,7 +35,6 @@ const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({
   const [isStreaming, setIsStreaming] = useState(true);
   const highlightBuffer = useRef<string[]>([]);
   const isCollecting = useRef(false);
-  const processedTextRef = useRef<string>('');
 
   const safeMarkdownText = React.useMemo(() => {
     return typeof markdownText === 'string' ? markdownText : '';
@@ -52,16 +51,22 @@ const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({
     });
   }, []);
 
+  // Preprocess the text first
+  const processedText = React.useMemo(() => preProcessText(safeMarkdownText), [safeMarkdownText, preProcessText]);
+
   // Reset streaming state when markdownText changes
-  React.useEffect(() => {
-    // Preprocess the text first
-    processedTextRef.current = preProcessText(safeMarkdownText);
+  const [streamedText, setStreamedText] = useState(safeMarkdownText);
+  if (safeMarkdownText !== streamedText) {
+    setStreamedText(safeMarkdownText);
     setIsStreaming(true);
+  }
+
+  React.useEffect(() => {
     const timer = setTimeout(() => {
       setIsStreaming(false);
     }, 500);
     return () => clearTimeout(timer);
-  }, [safeMarkdownText, preProcessText]);
+  }, [safeMarkdownText]);
 
   const copyToClipboard = async (code: string) => {
     await navigator.clipboard.writeText(code);
@@ -106,16 +111,19 @@ const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({
   }, [isStreaming, messageId, isDarkMode]);
 
   const processChildren = React.useCallback((children: ReactNode): ReactNode => {
-    if (typeof children === 'string') {
-      return processText(children);
-    }
-    if (Array.isArray(children)) {
-      return children.map(child => {
-        const processed = processChildren(child);
-        return processed === null ? null : processed;
-      }).filter(Boolean);
-    }
-    return children;
+    const walk = (node: ReactNode): ReactNode => {
+      if (typeof node === 'string') {
+        return processText(node);
+      }
+      if (Array.isArray(node)) {
+        return node.map(child => {
+          const processed = walk(child);
+          return processed === null ? null : processed;
+        }).filter(Boolean);
+      }
+      return node;
+    };
+    return walk(children);
   }, [processText]);
 
   const CodeBlock = React.useCallback(({
@@ -216,9 +224,9 @@ const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({
         remarkPlugins={[remarkGfm, remarkMath]}
         components={components}
       >
-        {(isStreaming ? processedTextRef.current : safeMarkdownText)}
+        {(isStreaming ? processedText : safeMarkdownText)}
       </Markdown>
-      {(isStreaming || (!isStreaming && !processedTextRef.current)) && <span className="markdown-cursor">▋</span>}
+      {(isStreaming || (!isStreaming && !processedText)) && <span className="markdown-cursor">▋</span>}
     </div>
   );
 };

@@ -100,14 +100,19 @@ export default function SetupPage() {
 
   const apiUrl = process.env.NEXT_PUBLIC_API_URL || "";
 
+  // Prefilling runs only while step 1 is shown.
+  const [prefillStep, setPrefillStep] = useState(step);
+  if (step !== prefillStep) {
+    setPrefillStep(step);
+    setIsPrefillingConfig(step === 1);
+  }
+
   useEffect(() => {
     if (step !== 1) {
-      setIsPrefillingConfig(false);
       return;
     }
 
     let active = true;
-    setIsPrefillingConfig(true);
 
     const loadConfig = async () => {
       try {

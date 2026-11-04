@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction, useContext, useEffect, useState } from 'react'
+import { Dispatch, SetStateAction, useContext, useState } from 'react'
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -19,7 +19,15 @@ export default function ApiSettingsPopup(props: { isOpen: boolean, setIsOpen: Di
     setIsOpen(false)
   }
 
-  useEffect(() => {
+  // Show the saved settings whenever they change.
+  const [prevSelection, setPrevSelection] = useState<{ openAIKey: string, mem0Key: string, provider: Provider } | null>(null)
+  if (
+    prevSelection === null ||
+    prevSelection.openAIKey !== selectedOpenAIKey ||
+    prevSelection.mem0Key !== selectedMem0Key ||
+    prevSelection.provider !== selectedProvider
+  ) {
+    setPrevSelection({ openAIKey: selectedOpenAIKey, mem0Key: selectedMem0Key, provider: selectedProvider })
     if (selectedOpenAIKey) {
       setProviderApiKey(selectedOpenAIKey);
     }
@@ -29,7 +37,7 @@ export default function ApiSettingsPopup(props: { isOpen: boolean, setIsOpen: Di
     if (selectedProvider) {
       setProvider(selectedProvider);
     }
-  }, [selectedOpenAIKey, selectedMem0Key, selectedProvider]);
+  }
   
 
 

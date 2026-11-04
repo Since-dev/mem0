@@ -26,11 +26,21 @@ export function useApiQuery<T>(
   const [error, setError] = useState("");
 
   const fetcherRef = useRef(fetcher);
-  fetcherRef.current = fetcher;
+  useEffect(() => {
+    fetcherRef.current = fetcher;
+  });
 
-  const run = useCallback(async () => {
-    setIsLoading(true);
-    setError("");
+  // Starting a query while enabled turns on resets the state as run() does.
+  const [wasEnabled, setWasEnabled] = useState(enabled);
+  if (enabled !== wasEnabled) {
+    setWasEnabled(enabled);
+    if (enabled) {
+      setIsLoading(true);
+      setError("");
+    }
+  }
+
+  const load = useCallback(async () => {
     try {
       setData(await fetcherRef.current());
     } catch (err) {
@@ -48,9 +58,15 @@ export function useApiQuery<T>(
     }
   }, [errorToast]);
 
+  const run = useCallback(async () => {
+    setIsLoading(true);
+    setError("");
+    await load();
+  }, [load]);
+
   useEffect(() => {
-    if (enabled) void run();
-  }, [enabled, run]);
+    if (enabled) void load();
+  }, [enabled, load]);
 
   return { data, isLoading, error, refetch: run };
 }

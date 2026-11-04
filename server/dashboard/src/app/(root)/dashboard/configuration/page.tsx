@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -56,17 +56,21 @@ export default function ConfigurationPage() {
     { errorToast: "Failed to load bundled providers" },
   );
 
-  useEffect(() => {
-    if (!config) return;
-    setLlmProvider((current) => current || config.llm?.provider || "");
-    setLlmModel((current) => current || config.llm?.config?.model || "");
-    setEmbedderProvider(
-      (current) => current || config.embedder?.provider || "",
-    );
-    setEmbedderModel(
-      (current) => current || config.embedder?.config?.model || "",
-    );
-  }, [config]);
+  // Prefill the empty fields whenever a new server configuration arrives.
+  const [prefilledFrom, setPrefilledFrom] = useState<typeof config>(undefined);
+  if (config !== prefilledFrom) {
+    setPrefilledFrom(config);
+    if (config) {
+      setLlmProvider((current) => current || config.llm?.provider || "");
+      setLlmModel((current) => current || config.llm?.config?.model || "");
+      setEmbedderProvider(
+        (current) => current || config.embedder?.provider || "",
+      );
+      setEmbedderModel(
+        (current) => current || config.embedder?.config?.model || "",
+      );
+    }
+  }
 
   const handleSave = async () => {
     setIsSaving(true);

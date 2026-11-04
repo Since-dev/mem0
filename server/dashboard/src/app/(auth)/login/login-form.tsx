@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useSyncExternalStore } from "react";
 import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useTheme } from "next-themes";
@@ -24,6 +24,8 @@ import { isValidEmail } from "@/lib/validators";
 const RESET_COMMAND =
   "make reset-admin-password EMAIL=<your-email> PASSWORD=<new-password>";
 
+const subscribeToNothing = () => () => {};
+
 export default function LoginForm() {
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -33,12 +35,12 @@ export default function LoginForm() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [submitting, setSubmitting] = useState(false);
-  const [mounted, setMounted] = useState(false);
+  const mounted = useSyncExternalStore(
+    subscribeToNothing,
+    () => true,
+    () => false,
+  );
   const [copied, setCopied] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   useEffect(() => {
     if (!isLoading && user) {

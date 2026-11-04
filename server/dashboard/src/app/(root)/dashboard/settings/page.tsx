@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Sun, Moon, Monitor } from "lucide-react";
 import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
@@ -26,12 +26,15 @@ export default function SettingsPage() {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [savingPassword, setSavingPassword] = useState(false);
 
-  useEffect(() => {
+  // Reset the profile fields whenever a new user object arrives.
+  const [syncedUser, setSyncedUser] = useState<typeof user>(null);
+  if (user !== syncedUser) {
+    setSyncedUser(user);
     if (user) {
       setName(user.name);
       setEmail(user.email);
     }
-  }, [user]);
+  }
 
   const profileDirty =
     user !== null && (name !== user.name || email !== user.email);
