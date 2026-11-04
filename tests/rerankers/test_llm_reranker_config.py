@@ -36,13 +36,13 @@ class TestLLMRerankerInit:
 
     def test_init_with_llm_reranker_config(self, mock_llm):
         mock_factory, _ = mock_llm
-        config = LLMRerankerConfig(provider="anthropic", model="claude-3-haiku", api_key="sk-ant")
+        config = LLMRerankerConfig(provider="anthropic", model="claude-haiku-4-5-20251001", api_key="sk-ant")
         reranker = LLMReranker(config)
 
         assert reranker.config.provider == "anthropic"
         mock_factory.create.assert_called_once_with(
             "anthropic",
-            {"model": "claude-3-haiku", "temperature": 0.0, "max_tokens": 100, "api_key": "sk-ant"},
+            {"model": "claude-haiku-4-5-20251001", "temperature": 0.0, "max_tokens": 100, "api_key": "sk-ant"},
         )
 
     def test_init_converts_base_reranker_config(self, mock_llm):

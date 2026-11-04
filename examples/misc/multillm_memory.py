@@ -38,7 +38,7 @@ RESEARCH_TEAM = {
         "role": "Technical Analyst - Code review, architecture, and technical decisions",
     },
     "writer": {
-        "model": "claude-3-5-sonnet-20241022",
+        "model": "claude-sonnet-5-5",
         "role": "Documentation Writer - Clear explanations and user guides",
     },
     "data_analyst": {

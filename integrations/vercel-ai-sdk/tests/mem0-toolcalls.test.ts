@@ -70,7 +70,7 @@ describe("Tool Calls Tests", () => {
     });
 
     const result = await generateText({
-      model: mem0Anthropic("claude-3-haiku-20240307"),
+      model: mem0Anthropic("claude-haiku-4-5-20251001"),
       tools: {
         weather: tool({
           description: "Get the weather in a location",

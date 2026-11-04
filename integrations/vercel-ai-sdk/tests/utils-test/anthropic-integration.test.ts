@@ -35,7 +35,7 @@ describe("ANTHROPIC Integration Tests", () => {
     
     const { text } = await generateText({
       // @ts-ignore
-      model: anthropic("claude-3-haiku-20240307"),
+      model: anthropic("claude-haiku-4-5-20251001"),
       messages: messages,
       system: memories.length > 0 ? memories : "No Memories Found"
     });
@@ -51,7 +51,7 @@ describe("ANTHROPIC Integration Tests", () => {
 
     const { text } = await generateText({
       // @ts-ignore
-      model: anthropic("claude-3-haiku-20240307"),
+      model: anthropic("claude-haiku-4-5-20251001"),
       prompt: prompt,
       system: memories.length > 0 ? memories : "No Memories Found"
     });

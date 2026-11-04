@@ -45,12 +45,12 @@ def test_base_to_kwargs_provider_preserves_reasoning_fields():
 def test_base_to_provider_without_reasoning_fields_still_builds():
     # Anthropic config does not accept reasoning_effort/is_reasoning_model;
     # the conversion must not forward unsupported kwargs to it.
-    base_config = BaseLlmConfig(model="claude-3-5-sonnet-20240620")
+    base_config = BaseLlmConfig(model="claude-sonnet-5-5")
 
     built = _capture_config("anthropic", base_config)
 
     assert isinstance(built, AnthropicConfig)
-    assert built.model == "claude-3-5-sonnet-20240620"
+    assert built.model == "claude-sonnet-5-5"
 
 
 def test_dict_config_not_mutated_by_kwargs():
