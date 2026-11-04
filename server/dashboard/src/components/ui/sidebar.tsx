@@ -118,7 +118,7 @@ const menuButtonVariants = cva(
           "bg-transparent text-onSurface-default-secondary [&_svg]:text-onSurface-default-tertiary hover:bg-surface-default-primary-hover [&_svg]:group-hover:text-onSurface-default-secondary",
       },
       collapsed: {
-        true: "!w-8 !h-8 !p-2 items-center justify-center",
+        true: "w-8! h-8! p-2! items-center justify-center",
         false: "",
       },
     },

@@ -23,9 +23,9 @@ const Toaster = ({ ...props }: ToasterProps) => {
             "group-[.toast]:text-muted-foreground group-[.toast]:text-sm",
           icon: "hidden",
           success:
-            "group-[.toaster]:border-l-4 group-[.toaster]:border-l-[var(--surface-positive-primary)]",
+            "group-[.toaster]:border-l-4 group-[.toaster]:border-l-(--surface-positive-primary)",
           error:
-            "group-[.toaster]:border-l-4 group-[.toaster]:border-l-[var(--surface-danger-primary)]",
+            "group-[.toaster]:border-l-4 group-[.toaster]:border-l-(--surface-danger-primary)",
           actionButton:
             "group-[.toast]:bg-primary group-[.toast]:text-primary-foreground",
           cancelButton:

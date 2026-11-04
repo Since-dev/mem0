@@ -107,7 +107,7 @@ export function MainNav({
               </div>
 
               {isSidebarCollapsed && (
-                <div className="h-[1px] w-full bg-memBorder-primary my-2" />
+                <div className="h-px w-full bg-memBorder-primary my-2" />
               )}
 
               <Collapsible
@@ -187,7 +187,7 @@ export function MainNav({
               </Collapsible>
 
               {isSidebarCollapsed && (
-                <div className="h-[1px] w-full bg-memBorder-primary my-2" />
+                <div className="h-px w-full bg-memBorder-primary my-2" />
               )}
 
               <div className="flex flex-col gap-0">
