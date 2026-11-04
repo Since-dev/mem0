@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Provider } from '@/constants/messages';
 
 interface UseAuthReturn {
@@ -12,25 +12,23 @@ interface UseAuthReturn {
   clearUser: () => void;
 }
 
+const getSavedAuth = () => {
+  const mem0 = localStorage.getItem('mem0ApiKey');
+  const openai = localStorage.getItem('openaiApiKey');
+  const savedProvider = localStorage.getItem('provider') as Provider;
+
+  if (mem0 && openai && savedProvider) {
+    return { mem0, openai, provider: savedProvider };
+  }
+  return null;
+};
+
 export const useAuth = (): UseAuthReturn => {
-  const [mem0ApiKey, setMem0ApiKey] = useState<string>('');
-  const [openaiApiKey, setOpenaiApiKey] = useState<string>('');
-  const [provider, setProvider] = useState<Provider>('openai');
-  const [user, setUser] = useState<string>('');
-
-  useEffect(() => {
-    const mem0 = localStorage.getItem('mem0ApiKey');
-    const openai = localStorage.getItem('openaiApiKey');
-    const savedProvider = localStorage.getItem('provider') as Provider;
-    const savedUser = localStorage.getItem('user');
-
-    if (mem0 && openai && savedProvider) {
-      setAuth(mem0, openai, savedProvider);
-    }
-    if (savedUser) {
-      setUser(savedUser);
-    }
-  }, []);
+  const [savedAuth] = useState(getSavedAuth);
+  const [mem0ApiKey, setMem0ApiKey] = useState<string>(savedAuth?.mem0 ?? '');
+  const [openaiApiKey, setOpenaiApiKey] = useState<string>(savedAuth?.openai ?? '');
+  const [provider, setProvider] = useState<Provider>(savedAuth?.provider ?? 'openai');
+  const [user, setUser] = useState<string>(() => localStorage.getItem('user') || '');
 
   const setAuth = (mem0: string, openai: string, provider: Provider) => {
     setMem0ApiKey(mem0);

@@ -1,8 +1,10 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState, useSyncExternalStore } from "react";
 import { X } from "lucide-react";
 import { cn } from "@/lib/utils";
+
+const subscribeToNothing = () => () => {};
 
 interface UpgradeBannerProps {
   id: string;
@@ -21,15 +23,15 @@ export function UpgradeBanner({
   variant,
   dismissible = true,
 }: UpgradeBannerProps) {
-  const [mounted, setMounted] = useState(false);
+  // null until mounted on the client, where localStorage can be read.
+  const storedDismissed = useSyncExternalStore(
+    subscribeToNothing,
+    () => localStorage.getItem(`nudge_${id}_dismissed`) === "true",
+    () => null,
+  );
   const [dismissed, setDismissed] = useState(false);
 
-  useEffect(() => {
-    setDismissed(localStorage.getItem(`nudge_${id}_dismissed`) === "true");
-    setMounted(true);
-  }, [id]);
-
-  if (!mounted || dismissed) return null;
+  if (storedDismissed === null || storedDismissed || dismissed) return null;
 
   const handleDismiss = () => {
     localStorage.setItem(`nudge_${id}_dismissed`, "true");

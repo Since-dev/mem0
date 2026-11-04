@@ -1,8 +1,10 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useSyncExternalStore } from "react";
 import Image from "next/image";
 import { useTheme } from "next-themes";
+
+const subscribeToNothing = () => () => {};
 
 export default function ThemeAwareLogo({
   width = 120,
@@ -11,12 +13,12 @@ export default function ThemeAwareLogo({
   width?: number;
   height?: number;
 }) {
-  const [mounted, setMounted] = useState(false);
+  const mounted = useSyncExternalStore(
+    subscribeToNothing,
+    () => true,
+    () => false,
+  );
   const { theme, resolvedTheme } = useTheme();
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   if (!mounted) {
     return <div style={{ width, height }} />;

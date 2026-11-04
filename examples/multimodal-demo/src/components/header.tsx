@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ChevronRight, X, RefreshCcw, Settings } from "lucide-react";
-import { Dispatch, SetStateAction, useContext, useEffect, useState } from "react";
+import { Dispatch, SetStateAction, useContext, useState } from "react";
 import GlobalContext from "../contexts/GlobalContext";
 import { Input } from "./ui/input";
 
@@ -32,11 +32,14 @@ const Header = (props: {
     }
   };
 
-  useEffect(() => {
+  // Show the selected user whenever it changes.
+  const [prevSelectedUser, setPrevSelectedUser] = useState<string | null>(null);
+  if (selectedUser !== prevSelectedUser) {
+    setPrevSelectedUser(selectedUser);
     if (selectedUser) {
       setUserId(selectedUser);
     }
-  }, [selectedUser]);
+  }
 
   return (
     <>

@@ -4,7 +4,7 @@ import { AssistantRuntimeProvider } from "@assistant-ui/react";
 import { useChatRuntime } from "@assistant-ui/react-ai-sdk";
 import { Thread } from "@/components/assistant-ui/thread";
 import { ThreadList } from "@/components/assistant-ui/thread-list";
-import { useEffect, useState } from "react";
+import { useState, useSyncExternalStore } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { Sun, Moon, AlignJustify } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -12,17 +12,26 @@ import ThemeAwareLogo from "@/components/mem0/theme-aware-logo";
 import Link from "next/link";
 import GithubButton from "@/components/mem0/github-button";
 
-const useUserId = () => {
-  const [userId, setUserId] = useState<string>("");
+const subscribeToNothing = () => () => {};
 
-  useEffect(() => {
-    let id = localStorage.getItem("userId");
-    if (!id) {
-      id = uuidv4();
-      localStorage.setItem("userId", id);
-    }
-    setUserId(id);
-  }, []);
+const getOrCreateStoredUserId = () => {
+  let id = localStorage.getItem("userId");
+  if (!id) {
+    id = uuidv4();
+    localStorage.setItem("userId", id);
+  }
+  return id;
+};
+
+const useUserId = () => {
+  // Empty on the server; read from localStorage once mounted on the client.
+  const storedUserId = useSyncExternalStore(
+    subscribeToNothing,
+    getOrCreateStoredUserId,
+    () => "",
+  );
+  const [resetUserIdValue, setUserId] = useState<string>("");
+  const userId = resetUserIdValue || storedUserId;
 
   const resetUserId = () => {
     const newId = uuidv4();
