@@ -23,7 +23,7 @@ export interface ProviderDef {
 }
 
 export const LLM_PROVIDERS: ProviderDef[] = [
-  { id: "openai", label: "OpenAI (requires API key)", needsApiKey: true, needsUrl: false, envVar: "OPENAI_API_KEY", defaultModel: "gpt-5-mini" },
+  { id: "openai", label: "OpenAI (requires API key)", needsApiKey: true, needsUrl: false, envVar: "OPENAI_API_KEY", defaultModel: "gpt-5.6-terra" },
   { id: "ollama", label: "Ollama (local, no API key)", needsApiKey: false, needsUrl: true, defaultModel: "llama3.1:8b", defaultUrl: "http://localhost:11434" },
   { id: "anthropic", label: "Anthropic (requires API key)", needsApiKey: true, needsUrl: false, envVar: "ANTHROPIC_API_KEY", defaultModel: "claude-sonnet-4-5-20250514" },
 ];

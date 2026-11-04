@@ -347,7 +347,7 @@ describe("mem0ConfigSchema.parse() — oss config", () => {
         config: { model: "text-embedding-3-small" },
       },
       vectorStore: { provider: "qdrant", config: { host: "localhost" } },
-      llm: { provider: "openai", config: { model: "gpt-4" } },
+      llm: { provider: "openai", config: { model: "gpt-5.6-sol" } },
       historyDbPath: "/tmp/history.db",
       disableHistory: false,
     };

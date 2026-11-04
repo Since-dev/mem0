@@ -18,7 +18,7 @@ USER_ID = "Anish"
 
 agent = Agent(
     name="Fitness Agent",
-    model=OpenAIChat(id="gpt-4.1-nano-2025-04-14"),
+    model=OpenAIChat(id="gpt-5.6-luna"),
     description="You are a helpful fitness assistant who remembers past logs and gives personalized suggestions for Anish's training and diet.",
     markdown=True,
 )

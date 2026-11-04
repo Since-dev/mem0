@@ -16,7 +16,7 @@ export const testConfig = {
   providers: [
     {
       name: "openai",
-      activeModel: "gpt-4-turbo",
+      activeModel: "gpt-5.6-sol",
       apiKey: process.env.OPENAI_API_KEY,
     }
     , 
@@ -37,7 +37,7 @@ export const testConfig = {
     }
   ],
   models: {
-    openai: "gpt-4-turbo",
+    openai: "gpt-5.6-sol",
     anthropic: "claude-3-haiku-20240307",
     groq: "gemma2-9b-it",
     cohere: "command-r-plus"

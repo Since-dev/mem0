@@ -162,7 +162,7 @@ async function createMemory() {
     },
     llm: {
       provider: "openai",
-      config: { apiKey: "test-key", model: "gpt-5-mini" },
+      config: { apiKey: "test-key", model: "gpt-5.6-terra" },
     },
     historyDbPath: ":memory:",
   });

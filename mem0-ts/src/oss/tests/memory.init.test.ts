@@ -69,7 +69,7 @@ function createMemory(overrides: Partial<MemoryConfig> = {}): Memory {
     },
     llm: {
       provider: "openai",
-      config: { apiKey: "test-key", model: "gpt-5-mini" },
+      config: { apiKey: "test-key", model: "gpt-5.6-terra" },
     },
     historyDbPath: ":memory:",
     ...overrides,
@@ -94,7 +94,7 @@ describe("Memory - Initialization", () => {
       },
       llm: {
         provider: "openai",
-        config: { apiKey: "test-key", model: "gpt-5-mini" },
+        config: { apiKey: "test-key", model: "gpt-5.6-terra" },
       },
     };
     const mem = Memory.fromConfig(config);

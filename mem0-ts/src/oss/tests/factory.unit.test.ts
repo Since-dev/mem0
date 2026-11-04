@@ -321,7 +321,7 @@ describe("LLMFactory", () => {
   });
 
   test("passes config to created LLM", () => {
-    const config: LLMConfig = { apiKey: "my-key", model: "gpt-4" };
+    const config: LLMConfig = { apiKey: "my-key", model: "gpt-5.6-sol" };
     const result = LLMFactory.create("openai", config) as any;
     expect(result.config).toBe(config);
   });

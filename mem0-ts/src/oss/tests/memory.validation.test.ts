@@ -51,7 +51,7 @@ describe("Memory Input Validation", () => {
       },
       llm: {
         provider: "openai",
-        config: { apiKey: "test-key", model: "gpt-5-mini" },
+        config: { apiKey: "test-key", model: "gpt-5.6-terra" },
       },
       vectorStore: {
         provider: "memory",

@@ -252,7 +252,7 @@ class OSSProvider implements Mem0Provider {
       provider: "openai",
       config: { model: "text-embedding-3-small" },
     };
-    const defaultLlm = { provider: "openai", config: { model: "gpt-5-mini" } };
+    const defaultLlm = { provider: "openai", config: { model: "gpt-5.6-terra" } };
 
     const stripEmpty = (obj: Record<string, unknown>) => {
       const out = { ...obj };
