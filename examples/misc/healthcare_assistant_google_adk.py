@@ -74,7 +74,7 @@ def schedule_appointment(date: str, time: str, reason: str) -> dict:
 # Create the Healthcare Assistant Agent
 healthcare_agent = Agent(
     name="healthcare_assistant",
-    model="gemini-1.5-flash",  # Using Gemini for healthcare assistant
+    model="gemini-2.5-flash-lite",  # Using Gemini for healthcare assistant
     description="Healthcare assistant that helps patients with health information and appointment scheduling.",
     instruction="""You are a helpful Healthcare Assistant with memory capabilities.
 

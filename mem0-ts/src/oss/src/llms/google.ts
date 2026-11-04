@@ -10,7 +10,7 @@ export class GoogleLLM implements LLM {
 
   constructor(config: LLMConfig) {
     this.apiKey = config.apiKey;
-    this.model = config.model || "gemini-2.0-flash";
+    this.model = config.model || "gemini-3.6-flash";
   }
 
   private async ensureClient(): Promise<void> {
