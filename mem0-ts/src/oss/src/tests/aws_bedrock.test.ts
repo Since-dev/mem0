@@ -129,7 +129,7 @@ describe("AWSBedrockLLM", () => {
   it("includes topP for non-anthropic models", async () => {
     const client = new FakeBedrockClient(textResponse);
     const llm = makeLLM(client, {
-      model: "meta.llama3-70b-instruct-v1:0",
+      model: "amazon.nova-pro-v1:0",
       topP: 0.9,
     });
     await llm.generateResponse([{ role: "user", content: "hi" }]);
