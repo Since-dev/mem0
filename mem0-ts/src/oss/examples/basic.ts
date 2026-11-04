@@ -168,7 +168,7 @@ async function demoMemoryStore() {
       provider: "openai",
       config: {
         apiKey: process.env.OPENAI_API_KEY || "",
-        model: "gpt-4-turbo-preview",
+        model: "gpt-4.1",
       },
     },
     historyDbPath: "memory.db",
@@ -207,7 +207,7 @@ async function demoPGVector() {
       provider: "openai",
       config: {
         apiKey: process.env.OPENAI_API_KEY || "",
-        model: "gpt-4-turbo-preview",
+        model: "gpt-4.1",
       },
     },
     historyDbPath: "memory.db",
@@ -247,7 +247,7 @@ async function demoQdrant() {
       provider: "openai",
       config: {
         apiKey: process.env.OPENAI_API_KEY || "",
-        model: "gpt-4-turbo-preview",
+        model: "gpt-4.1",
       },
     },
     historyDbPath: "memory.db",
@@ -282,7 +282,7 @@ async function demoRedis() {
       provider: "openai",
       config: {
         apiKey: process.env.OPENAI_API_KEY || "",
-        model: "gpt-4-turbo-preview",
+        model: "gpt-4.1",
       },
     },
     historyDbPath: "memory.db",

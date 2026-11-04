@@ -23,7 +23,7 @@ describe("LLM_PROVIDERS", () => {
   it("openai requires API key", () => {
     const openai = LLM_PROVIDERS.find((p) => p.id === "openai")!;
     expect(openai.needsApiKey).toBe(true);
-    expect(openai.defaultModel).toBe("gpt-5-mini");
+    expect(openai.defaultModel).toBe("gpt-5.6-terra");
   });
 
   it("ollama needs no API key but needs URL", () => {
@@ -52,7 +52,7 @@ describe("buildOssLlmConfig", () => {
     const result = buildOssLlmConfig("openai", { apiKey: "sk-test" });
     expect(result).toEqual({
       provider: "openai",
-      config: { model: "gpt-5-mini", apiKey: "sk-test" },
+      config: { model: "gpt-5.6-terra", apiKey: "sk-test" },
     });
   });
 

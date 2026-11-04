@@ -422,7 +422,7 @@ describe("OSSProvider — _buildConfig branch coverage", () => {
       mode: "open-source",
       oss: {
         embedder: { provider: "openai", config: { apiKey: "sk-e", model: "text-embedding-3-small" } },
-        llm: { provider: "openai", config: { apiKey: "sk-l", model: "gpt-4" } },
+        llm: { provider: "openai", config: { apiKey: "sk-l", model: "gpt-5.6-sol" } },
         vectorStore: { provider: "qdrant", config: { host: "localhost", port: 6333 } },
         historyDbPath: "/tmp/history.db",
         disableHistory: true,
@@ -440,7 +440,7 @@ describe("OSSProvider — _buildConfig branch coverage", () => {
     });
     expect(capturedConfig!.llm).toEqual({
       provider: "openai",
-      config: expect.objectContaining({ model: "gpt-4", apiKey: "sk-l" }),
+      config: expect.objectContaining({ model: "gpt-5.6-sol", apiKey: "sk-l" }),
     });
     expect(capturedConfig!.vectorStore).toEqual({ provider: "qdrant", config: { host: "localhost", port: 6333 } });
     expect(capturedConfig!.historyDbPath).toBe("/tmp/history.db");

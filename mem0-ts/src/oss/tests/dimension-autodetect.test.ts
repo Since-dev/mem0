@@ -470,7 +470,7 @@ describe("Memory – auto-initialization", () => {
       },
       llm: {
         provider: "openai",
-        config: { apiKey: "sk-fake", model: "gpt-5-mini" },
+        config: { apiKey: "sk-fake", model: "gpt-5.6-terra" },
       },
       historyDbPath: ":memory:",
       disableHistory: true,

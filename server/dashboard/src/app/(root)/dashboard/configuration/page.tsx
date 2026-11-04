@@ -149,7 +149,7 @@ export default function ConfigurationPage() {
             <div className="space-y-1">
               <Label className="text-xs">Model</Label>
               <Input
-                placeholder="gpt-4.1-nano-2025-04-14"
+                placeholder="gpt-5.6-luna"
                 value={llmModel}
                 onChange={(e) => setLlmModel(e.target.value)}
                 disabled={!isAdmin}

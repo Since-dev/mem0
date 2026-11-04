@@ -34,7 +34,7 @@ memory = MemoryClient()
 # Research team models with specialized roles
 RESEARCH_TEAM = {
     "tech_analyst": {
-        "model": "gpt-4.1-nano-2025-04-14",
+        "model": "gpt-5.6-luna",
         "role": "Technical Analyst - Code review, architecture, and technical decisions",
     },
     "writer": {
@@ -42,7 +42,7 @@ RESEARCH_TEAM = {
         "role": "Documentation Writer - Clear explanations and user guides",
     },
     "data_analyst": {
-        "model": "gpt-4.1-nano-2025-04-14",
+        "model": "gpt-5.6-luna",
         "role": "Data Analyst - Insights, trends, and data-driven recommendations",
     },
 }
