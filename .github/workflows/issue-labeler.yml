@@ -12,7 +12,7 @@ jobs:
   label:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - uses: stefanbuck/github-issue-parser@v3
         id: issue-parser
@@ -28,7 +28,7 @@ jobs:
           config-path: .github/advanced-issue-labeler.yml
 
       - name: Infer component from text when the form was not used
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         with:
           script: |
             const {
