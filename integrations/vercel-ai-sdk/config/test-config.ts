@@ -22,7 +22,7 @@ export const testConfig = {
     , 
     {
       name: "anthropic",
-      activeModel: "claude-3-5-sonnet-20240620",
+      activeModel: "claude-sonnet-5-5",
       apiKey: process.env.ANTHROPIC_API_KEY,
     },
     // {
@@ -38,7 +38,7 @@ export const testConfig = {
   ],
   models: {
     openai: "gpt-4-turbo",
-    anthropic: "claude-3-haiku-20240307",
+    anthropic: "claude-haiku-4-5-20251001",
     groq: "gemma2-9b-it",
     cohere: "command-r-plus"
   },

@@ -23,7 +23,7 @@ export const ERROR_MESSAGE: Message = {
 
 export const AI_MODELS = {
   openai: "gpt-4o",
-  anthropic: "claude-3-haiku-20240307",
+  anthropic: "claude-haiku-4-5-20251001",
   cohere: "command-r-plus",
   groq: "gemma2-9b-it",
 } as const;

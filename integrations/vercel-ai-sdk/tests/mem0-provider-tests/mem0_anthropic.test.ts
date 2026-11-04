@@ -36,7 +36,7 @@ describe("ANTHROPIC MEM0 Tests", () => {
     
     const { text } = await generateText({
       // @ts-ignore
-      model: mem0("claude-3-haiku-20240307"),
+      model: mem0("claude-haiku-4-5-20251001"),
       messages: messages,
     });
 
@@ -50,7 +50,7 @@ describe("ANTHROPIC MEM0 Tests", () => {
 
     const { text } = await generateText({
       // @ts-ignore
-      model: mem0("claude-3-haiku-20240307"),
+      model: mem0("claude-haiku-4-5-20251001"),
       prompt: prompt,
     });
 

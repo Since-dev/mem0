@@ -81,15 +81,15 @@ class TestNestedLLMConfig:
         mock_factory, _ = mock_llm
         LLMReranker({
             "provider": "anthropic",
-            "model": "claude-3-haiku",
+            "model": "claude-haiku-4-5-20251001",
             "llm": {
-                "config": {"model": "claude-3-sonnet"},
+                "config": {"model": "claude-sonnet-5-5"},
             },
         })
 
         call_args = mock_factory.create.call_args
         assert call_args[0][0] == "anthropic"
-        assert call_args[0][1]["model"] == "claude-3-sonnet"
+        assert call_args[0][1]["model"] == "claude-sonnet-5-5"
 
     def test_nested_llm_with_empty_config(self, mock_llm):
         """Nested llm with no config dict should still work, using top-level defaults."""
