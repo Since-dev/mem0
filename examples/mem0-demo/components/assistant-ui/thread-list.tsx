@@ -89,7 +89,7 @@ const ThreadListNew: FC = () => {
   return (
     <ThreadListPrimitive.New asChild>
       <Button
-        className="hover:bg-[#8ea4e8] dark:hover:bg-zinc-800 dark:data-[active]:bg-zinc-800 flex items-center justify-start gap-1 rounded-lg px-2.5 py-2 text-start bg-[#4f46e5] text-white dark:bg-[#6366f1]"
+        className="hover:bg-[#8ea4e8] dark:hover:bg-zinc-800 dark:data-active:bg-zinc-800 flex items-center justify-start gap-1 rounded-lg px-2.5 py-2 text-start bg-[#4f46e5] text-white dark:bg-[#6366f1]"
         variant="default"
       >
         <PlusIcon className="w-4 h-4" />
@@ -105,8 +105,8 @@ const ThreadListItems: FC = () => {
 
 const ThreadListItem: FC = () => {
   return (
-    <ThreadListItemPrimitive.Root className="data-[active]:bg-[#eef2ff] hover:bg-[#eef2ff] dark:hover:bg-zinc-800 dark:data-[active]:bg-zinc-800 dark:text-white focus-visible:bg-[#eef2ff] dark:focus-visible:bg-zinc-800 focus-visible:ring-[#4f46e5] flex items-center gap-2 rounded-lg transition-all focus-visible:outline-none focus-visible:ring-2">
-      <ThreadListItemPrimitive.Trigger className="flex-grow px-3 py-2 text-start">
+    <ThreadListItemPrimitive.Root className="data-active:bg-[#eef2ff] hover:bg-[#eef2ff] dark:hover:bg-zinc-800 dark:data-active:bg-zinc-800 dark:text-white focus-visible:bg-[#eef2ff] dark:focus-visible:bg-zinc-800 focus-visible:ring-[#4f46e5] flex items-center gap-2 rounded-lg transition-all focus-visible:outline-hidden focus-visible:ring-2">
+      <ThreadListItemPrimitive.Trigger className="grow px-3 py-2 text-start">
         <ThreadListItemTitle />
       </ThreadListItemPrimitive.Trigger>
       <ThreadListItemArchive />

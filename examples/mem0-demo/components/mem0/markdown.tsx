@@ -209,7 +209,7 @@ const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({
 
   return (
     <div className={cn(
-      "min-w-[100%] max-w-[100%] my-2 prose-hr:my-0 prose-h4:my-1 text-sm prose-ul:-my-2 prose-ol:-my-2 prose-li:-my-2 prose break-words prose-pre:bg-transparent prose-pre:-my-2 dark:prose-invert prose-p:leading-snug prose-pre:p-0 prose-h3:-my-2 prose-p:-my-2",
+      "min-w-full max-w-full my-2 prose-hr:my-0 prose-h4:my-1 text-sm prose-ul:-my-2 prose-ol:-my-2 prose-li:-my-2 prose wrap-break-word prose-pre:bg-transparent prose-pre:-my-2 dark:prose-invert prose-p:leading-snug prose-pre:p-0 prose-h3:-my-2 prose-p:-my-2",
       className
     )}>
       <Markdown

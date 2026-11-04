@@ -1,6 +1,158 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@config '../../tailwind.config.ts';
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
+
+/* Typography system: uses --typo-*-size, --typo-*-line, --typo-*-tracking from :root.
+   font/weight via font-fustat, font-dm-mono (var(--font-*, ui-sans-serif) from Tailwind). */
+
+@utility typo-h1 {
+  @apply font-fustat font-bold;
+  font-size: var(--typo-h1-size);
+  line-height: var(--typo-h1-line);
+  letter-spacing: var(--typo-h1-tracking);
+}
+
+@utility typo-h2 {
+  @apply font-fustat font-bold;
+  font-size: var(--typo-h2-size);
+  line-height: var(--typo-h2-line);
+  letter-spacing: var(--typo-h2-tracking);
+}
+
+@utility typo-h3 {
+  @apply font-fustat font-bold;
+  font-size: var(--typo-h3-size);
+  line-height: var(--typo-h3-line);
+  letter-spacing: var(--typo-h3-tracking);
+}
+
+@utility typo-h4 {
+  @apply font-fustat font-bold;
+  font-size: var(--typo-h4-size);
+  line-height: var(--typo-h4-line);
+  letter-spacing: var(--typo-h4-tracking);
+}
+
+@utility typo-h5 {
+  @apply font-fustat font-bold;
+  font-size: var(--typo-h5-size);
+  line-height: var(--typo-h5-line);
+  letter-spacing: var(--typo-h5-tracking);
+}
+
+@utility typo-body-lg {
+  @apply font-fustat font-semibold;
+  font-size: var(--typo-body-lg-size);
+  line-height: var(--typo-body-lg-line);
+  letter-spacing: var(--typo-body-lg-tracking);
+}
+
+@utility typo-body {
+  @apply font-fustat font-semibold;
+  font-size: var(--typo-body-size);
+  line-height: var(--typo-body-line);
+  letter-spacing: var(--typo-body-tracking);
+}
+
+@utility typo-body-sm {
+  @apply font-fustat font-semibold;
+  font-size: var(--typo-body-sm-size);
+  line-height: var(--typo-body-sm-line);
+  letter-spacing: var(--typo-body-sm-tracking);
+}
+
+@utility typo-body-xs {
+  @apply font-fustat font-semibold;
+  font-size: var(--typo-body-xs-size);
+  line-height: var(--typo-body-xs-line);
+  letter-spacing: var(--typo-body-xs-tracking);
+}
+
+@utility typo-body-lg-bold {
+  @apply font-fustat font-bold;
+  font-size: var(--typo-body-lg-size);
+  line-height: var(--typo-body-lg-line);
+  letter-spacing: var(--typo-body-lg-tracking);
+}
+
+@utility typo-body-bold {
+  @apply font-fustat font-bold;
+  font-size: var(--typo-body-size);
+  line-height: var(--typo-body-line);
+  letter-spacing: var(--typo-body-tracking);
+}
+
+@utility typo-body-sm-bold {
+  @apply font-fustat font-bold;
+  font-size: var(--typo-body-sm-size);
+  line-height: var(--typo-body-sm-line);
+  letter-spacing: var(--typo-body-sm-tracking);
+}
+
+@utility typo-body-xs-bold {
+  @apply font-fustat font-bold;
+  font-size: var(--typo-body-xs-size);
+  line-height: var(--typo-body-xs-line);
+  letter-spacing: var(--typo-body-xs-tracking);
+}
+
+@utility typo-caption {
+  @apply font-dm-mono font-medium;
+  font-size: var(--typo-caption-size);
+  line-height: var(--typo-caption-line);
+  letter-spacing: var(--typo-caption-tracking);
+}
+
+@utility typo-caption-sm {
+  @apply font-dm-mono font-medium;
+  font-size: var(--typo-caption-sm-size);
+  line-height: var(--typo-caption-sm-line);
+  letter-spacing: var(--typo-caption-sm-tracking);
+}
+
+@utility typo-overline {
+  @apply font-dm-mono font-medium;
+  font-size: var(--typo-overline-size);
+  line-height: var(--typo-overline-line);
+  letter-spacing: var(--typo-overline-tracking);
+}
+
+@utility step {
+  counter-increment: step;
+
+  &:before {
+    @apply absolute w-9 h-9 bg-muted rounded-full font-mono font-medium text-center text-base inline-flex items-center justify-center -indent-px border-4 border-background;
+    @apply ml-[-50px] mt-[-4px];
+    content: counter(step);
+  }
+}
+
+@utility chunk-container {
+  @apply shadow-none;
+
+  &::after {
+    content: "";
+    @apply absolute -inset-4 shadow-xl rounded-xl border;
+  }
+}
 
 @layer base {
   :root {
@@ -377,143 +529,6 @@
     font-synthesis-weight: none;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
-  }
-}
-
-/* Typography system: uses --typo-*-size, --typo-*-line, --typo-*-tracking from :root.
-   font/weight via font-fustat, font-dm-mono (var(--font-*, ui-sans-serif) from Tailwind). */
-@layer components {
-  .typo-h1 {
-    @apply font-fustat font-bold;
-    font-size: var(--typo-h1-size);
-    line-height: var(--typo-h1-line);
-    letter-spacing: var(--typo-h1-tracking);
-  }
-
-  .typo-h2 {
-    @apply font-fustat font-bold;
-    font-size: var(--typo-h2-size);
-    line-height: var(--typo-h2-line);
-    letter-spacing: var(--typo-h2-tracking);
-  }
-
-  .typo-h3 {
-    @apply font-fustat font-bold;
-    font-size: var(--typo-h3-size);
-    line-height: var(--typo-h3-line);
-    letter-spacing: var(--typo-h3-tracking);
-  }
-
-  .typo-h4 {
-    @apply font-fustat font-bold;
-    font-size: var(--typo-h4-size);
-    line-height: var(--typo-h4-line);
-    letter-spacing: var(--typo-h4-tracking);
-  }
-
-  .typo-h5 {
-    @apply font-fustat font-bold;
-    font-size: var(--typo-h5-size);
-    line-height: var(--typo-h5-line);
-    letter-spacing: var(--typo-h5-tracking);
-  }
-
-  .typo-body-lg {
-    @apply font-fustat font-semibold;
-    font-size: var(--typo-body-lg-size);
-    line-height: var(--typo-body-lg-line);
-    letter-spacing: var(--typo-body-lg-tracking);
-  }
-
-  .typo-body {
-    @apply font-fustat font-semibold;
-    font-size: var(--typo-body-size);
-    line-height: var(--typo-body-line);
-    letter-spacing: var(--typo-body-tracking);
-  }
-
-  .typo-body-sm {
-    @apply font-fustat font-semibold;
-    font-size: var(--typo-body-sm-size);
-    line-height: var(--typo-body-sm-line);
-    letter-spacing: var(--typo-body-sm-tracking);
-  }
-
-  .typo-body-xs {
-    @apply font-fustat font-semibold;
-    font-size: var(--typo-body-xs-size);
-    line-height: var(--typo-body-xs-line);
-    letter-spacing: var(--typo-body-xs-tracking);
-  }
-
-  .typo-body-lg-bold {
-    @apply font-fustat font-bold;
-    font-size: var(--typo-body-lg-size);
-    line-height: var(--typo-body-lg-line);
-    letter-spacing: var(--typo-body-lg-tracking);
-  }
-
-  .typo-body-bold {
-    @apply font-fustat font-bold;
-    font-size: var(--typo-body-size);
-    line-height: var(--typo-body-line);
-    letter-spacing: var(--typo-body-tracking);
-  }
-
-  .typo-body-sm-bold {
-    @apply font-fustat font-bold;
-    font-size: var(--typo-body-sm-size);
-    line-height: var(--typo-body-sm-line);
-    letter-spacing: var(--typo-body-sm-tracking);
-  }
-
-  .typo-body-xs-bold {
-    @apply font-fustat font-bold;
-    font-size: var(--typo-body-xs-size);
-    line-height: var(--typo-body-xs-line);
-    letter-spacing: var(--typo-body-xs-tracking);
-  }
-
-  .typo-caption {
-    @apply font-dm-mono font-medium;
-    font-size: var(--typo-caption-size);
-    line-height: var(--typo-caption-line);
-    letter-spacing: var(--typo-caption-tracking);
-  }
-
-  .typo-caption-sm {
-    @apply font-dm-mono font-medium;
-    font-size: var(--typo-caption-sm-size);
-    line-height: var(--typo-caption-sm-line);
-    letter-spacing: var(--typo-caption-sm-tracking);
-  }
-
-  .typo-overline {
-    @apply font-dm-mono font-medium;
-    font-size: var(--typo-overline-size);
-    line-height: var(--typo-overline-line);
-    letter-spacing: var(--typo-overline-tracking);
-  }
-}
-
-@layer utilities {
-  .step {
-    counter-increment: step;
-  }
-
-  .step:before {
-    @apply absolute w-9 h-9 bg-muted rounded-full font-mono font-medium text-center text-base inline-flex items-center justify-center -indent-px border-4 border-background;
-    @apply ml-[-50px] mt-[-4px];
-    content: counter(step);
-  }
-
-  .chunk-container {
-    @apply shadow-none;
-  }
-
-  .chunk-container::after {
-    content: "";
-    @apply absolute -inset-4 shadow-xl rounded-xl border;
   }
 }
 

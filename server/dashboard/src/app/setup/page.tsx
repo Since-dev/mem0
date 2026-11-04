@@ -594,7 +594,7 @@ export default function SetupPage() {
                     value={useCase}
                     onChange={(e) => setUseCase(e.target.value)}
                     placeholder="e.g. A personal assistant that remembers my preferences"
-                    className="flex w-full rounded-md border border-memBorder-primary bg-surface-default-primary px-3 py-2 text-sm placeholder:text-onSurface-default-tertiary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-memPurple-500 min-h-[80px] resize-y"
+                    className="flex w-full rounded-md border border-memBorder-primary bg-surface-default-primary px-3 py-2 text-sm placeholder:text-onSurface-default-tertiary focus-visible:outline-hidden focus-visible:ring-1 focus-visible:ring-memPurple-500 min-h-[80px] resize-y"
                   />
                 </div>
                 <div className="flex flex-wrap gap-2">
@@ -672,7 +672,7 @@ export default function SetupPage() {
                         id="setup-instructions"
                         value={customInstructions}
                         onChange={(e) => setCustomInstructions(e.target.value)}
-                        className="flex w-full rounded-md border border-memBorder-primary bg-surface-default-primary px-3 py-2 text-sm placeholder:text-onSurface-default-tertiary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-memPurple-500 min-h-[120px] resize-y"
+                        className="flex w-full rounded-md border border-memBorder-primary bg-surface-default-primary px-3 py-2 text-sm placeholder:text-onSurface-default-tertiary focus-visible:outline-hidden focus-visible:ring-1 focus-visible:ring-memPurple-500 min-h-[120px] resize-y"
                       />
                     </div>
                     <Button

@@ -148,14 +148,14 @@ export const Thread: FC<ThreadProps> = ({
                 <ThreadListPrimitive.New asChild>
                   <div className="flex items-center flex-col gap-2 w-full">
                   <Button
-                    className="hover:bg-zinc-600 w-full dark:hover:bg-zinc-800 dark:data-[active]:bg-zinc-800 flex items-center justify-start gap-1 rounded-lg px-2.5 py-2 text-start bg-[#4f46e5] text-white dark:bg-[#6366f1]"
+                    className="hover:bg-zinc-600 w-full dark:hover:bg-zinc-800 dark:data-active:bg-zinc-800 flex items-center justify-start gap-1 rounded-lg px-2.5 py-2 text-start bg-[#4f46e5] text-white dark:bg-[#6366f1]"
                     variant="default"
                   >
                     <PlusIcon className="w-4 h-4" />
                     New Thread
                   </Button>
                     <Button
-                      className="hover:bg-zinc-600 w-full dark:hover:bg-zinc-700 dark:data-[active]:bg-zinc-800 flex items-center justify-start gap-1 rounded-lg px-2.5 py-2 text-start bg-zinc-800 text-white"
+                      className="hover:bg-zinc-600 w-full dark:hover:bg-zinc-700 dark:data-active:bg-zinc-800 flex items-center justify-start gap-1 rounded-lg px-2.5 py-2 text-start bg-zinc-800 text-white"
                       onClick={toggleDarkMode}
                       aria-label="Toggle theme"
                     >
@@ -214,12 +214,12 @@ export const Thread: FC<ThreadProps> = ({
           />
 
           <ThreadPrimitive.If empty={false}>
-            <div className="min-h-8 flex-grow" />
+            <div className="min-h-8 grow" />
           </ThreadPrimitive.If>
         </div>
       </ScrollArea>
 
-      <div className="sticky bottom-0 flex w-full max-w-[var(--thread-max-width)] flex-col items-center justify-end rounded-t-lg bg-inherit px-4 md:pb-4 mx-auto">
+      <div className="sticky bottom-0 flex w-full max-w-(--thread-max-width) flex-col items-center justify-end rounded-t-lg bg-inherit px-4 md:pb-4 mx-auto">
         <ThreadScrollToBottom />
         <Composer
           composerInputRef={
@@ -252,10 +252,10 @@ interface ThreadWelcomeProps {
 const ThreadWelcome: FC<ThreadWelcomeProps> = ({ composerInputRef }) => {
   return (
     <ThreadPrimitive.Empty>
-      <div className="flex w-full flex-grow flex-col mt-8 md:h-[calc(100vh-15rem)]">
-        <div className="flex w-full flex-grow flex-col items-center justify-start">
+      <div className="flex w-full grow flex-col mt-8 md:h-[calc(100vh-15rem)]">
+        <div className="flex w-full grow flex-col items-center justify-start">
           <div className="flex flex-col items-center justify-center h-full">
-            <div className="text-[2rem] leading-[1] tracking-[-0.02em] md:text-4xl font-bold text-[#1e293b] dark:text-white mb-2 text-center md:w-full w-5/6">
+            <div className="text-[2rem] leading-none tracking-[-0.02em] md:text-4xl font-bold text-[#1e293b] dark:text-white mb-2 text-center md:w-full w-5/6">
               Mem0 - ChatGPT with memory
             </div>
             <p className="text-center text-md text-[#1e293b] dark:text-white mb-2 md:w-3/4 w-5/6">
@@ -283,7 +283,7 @@ const ThreadWelcomeSuggestions: FC<ThreadWelcomeSuggestionsProps> = ({ composerI
   return (
     <div className="mt-3 flex flex-col md:flex-row w-full md:items-stretch justify-center gap-4 dark:text-white items-center">
       <ThreadPrimitive.Suggestion
-        className="hover:bg-[#eef2ff] w-full dark:hover:bg-zinc-800 flex max-w-sm grow basis-0 flex-col items-center justify-center rounded-[2rem] border border-[#e2e8f0] dark:border-zinc-700 p-3 transition-colors ease-in"
+        className="hover:bg-[#eef2ff] w-full dark:hover:bg-zinc-800 flex max-w-sm grow basis-0 flex-col items-center justify-center rounded-4xl border border-[#e2e8f0] dark:border-zinc-700 p-3 transition-colors ease-in"
         prompt="I like to travel to "
         method="replace"
         onClick={() => {
@@ -295,7 +295,7 @@ const ThreadWelcomeSuggestions: FC<ThreadWelcomeSuggestionsProps> = ({ composerI
         </span>
       </ThreadPrimitive.Suggestion>
       <ThreadPrimitive.Suggestion
-        className="hover:bg-[#eef2ff] w-full dark:hover:bg-zinc-800 flex max-w-sm grow basis-0 flex-col items-center justify-center rounded-[2rem] border border-[#e2e8f0] dark:border-zinc-700 p-3 transition-colors ease-in"
+        className="hover:bg-[#eef2ff] w-full dark:hover:bg-zinc-800 flex max-w-sm grow basis-0 flex-col items-center justify-center rounded-4xl border border-[#e2e8f0] dark:border-zinc-700 p-3 transition-colors ease-in"
         prompt="I like to eat "
         method="replace"
         onClick={() => {
@@ -307,7 +307,7 @@ const ThreadWelcomeSuggestions: FC<ThreadWelcomeSuggestionsProps> = ({ composerI
         </span>
       </ThreadPrimitive.Suggestion>
       <ThreadPrimitive.Suggestion
-        className="hover:bg-[#eef2ff] w-full dark:hover:bg-zinc-800 flex max-w-sm grow basis-0 flex-col items-center justify-center rounded-[2rem] border border-[#e2e8f0] dark:border-zinc-700 p-3 transition-colors ease-in"
+        className="hover:bg-[#eef2ff] w-full dark:hover:bg-zinc-800 flex max-w-sm grow basis-0 flex-col items-center justify-center rounded-4xl border border-[#e2e8f0] dark:border-zinc-700 p-3 transition-colors ease-in"
         prompt="I am working on "
         method="replace"
         onClick={() => {
@@ -328,12 +328,12 @@ interface ComposerProps {
 
 const Composer: FC<ComposerProps> = ({ composerInputRef }) => {
   return (
-    <ComposerPrimitive.Root className="focus-within:border-[#4f46e5]/20 dark:focus-within:border-[#6366f1]/20 flex w-full flex-wrap items-end rounded-full border border-[#e2e8f0] dark:border-zinc-700 bg-white dark:bg-zinc-800 px-2.5 shadow-sm transition-colors ease-in">
+    <ComposerPrimitive.Root className="focus-within:border-[#4f46e5]/20 dark:focus-within:border-[#6366f1]/20 flex w-full flex-wrap items-end rounded-full border border-[#e2e8f0] dark:border-zinc-700 bg-white dark:bg-zinc-800 px-2.5 shadow-xs transition-colors ease-in">
       <ComposerPrimitive.Input
         rows={1}
         autoFocus
         placeholder="Message to Mem0..."
-        className="placeholder:text-zinc-400 dark:placeholder:text-zinc-500 max-h-40 flex-grow resize-none border-none bg-transparent px-2 py-4 text-sm outline-none focus:ring-0 disabled:cursor-not-allowed text-[#1e293b] dark:text-zinc-200"
+        className="placeholder:text-zinc-400 dark:placeholder:text-zinc-500 max-h-40 grow resize-none border-none bg-transparent px-2 py-4 text-sm outline-hidden focus:ring-0 disabled:cursor-not-allowed text-[#1e293b] dark:text-zinc-200"
         ref={composerInputRef}
       />
       <ComposerAction />
@@ -372,10 +372,10 @@ const ComposerAction: FC = () => {
 
 const UserMessage: FC = () => {
   return (
-    <MessagePrimitive.Root className="grid auto-rows-auto grid-cols-[minmax(72px,1fr)_auto] gap-y-2 [&:where(>*)]:col-start-2 w-full max-w-[var(--thread-max-width)] py-4">
+    <MessagePrimitive.Root className="grid auto-rows-auto grid-cols-[minmax(72px,1fr)_auto] gap-y-2 [&:where(>*)]:col-start-2 w-full max-w-(--thread-max-width) py-4">
       <UserActionBar />
 
-      <div className="bg-[#4f46e5] text-sm dark:bg-[#6366f1] text-white max-w-[calc(var(--thread-max-width)*0.8)] break-words rounded-3xl px-5 py-2.5 col-start-2 row-start-2">
+      <div className="bg-[#4f46e5] text-sm dark:bg-[#6366f1] text-white max-w-[calc(var(--thread-max-width)*0.8)] wrap-break-word rounded-3xl px-5 py-2.5 col-start-2 row-start-2">
         <MessagePrimitive.Content />
       </div>
 
@@ -405,8 +405,8 @@ const UserActionBar: FC = () => {
 
 const EditComposer: FC = () => {
   return (
-    <ComposerPrimitive.Root className="bg-[#eef2ff] dark:bg-zinc-800 my-4 flex w-full max-w-[var(--thread-max-width)] flex-col gap-2 rounded-xl">
-      <ComposerPrimitive.Input className="text-[#1e293b] dark:text-zinc-200 flex h-8 w-full resize-none bg-transparent p-4 pb-0 outline-none" />
+    <ComposerPrimitive.Root className="bg-[#eef2ff] dark:bg-zinc-800 my-4 flex w-full max-w-(--thread-max-width) flex-col gap-2 rounded-xl">
+      <ComposerPrimitive.Input className="text-[#1e293b] dark:text-zinc-200 flex h-8 w-full resize-none bg-transparent p-4 pb-0 outline-hidden" />
 
       <div className="mx-3 mb-3 flex items-center justify-center gap-2 self-end">
         <ComposerPrimitive.Cancel asChild>
@@ -418,7 +418,7 @@ const EditComposer: FC = () => {
           </Button>
         </ComposerPrimitive.Cancel>
         <ComposerPrimitive.Send asChild>
-          <Button className="bg-[#4f46e5] dark:bg-[#6366f1] hover:bg-[#4338ca] dark:hover:bg-[#4f46e5] text-white rounded-[2rem]">
+          <Button className="bg-[#4f46e5] dark:bg-[#6366f1] hover:bg-[#4338ca] dark:hover:bg-[#4f46e5] text-white rounded-4xl">
             Send
           </Button>
         </ComposerPrimitive.Send>
@@ -439,8 +439,8 @@ const AssistantMessage: FC = () => {
   }, [content]);
 
   return (
-    <MessagePrimitive.Root className="grid grid-cols-[auto_auto_1fr] grid-rows-[auto_1fr] relative w-full max-w-[var(--thread-max-width)] py-4">
-      <div className="text-[#1e293b] dark:text-zinc-200 max-w-[calc(var(--thread-max-width)*0.8)] break-words leading-7 col-span-2 col-start-2 row-start-1 my-1.5 bg-white dark:bg-zinc-800 rounded-3xl px-5 py-2.5 border border-[#e2e8f0] dark:border-zinc-700 shadow-sm">
+    <MessagePrimitive.Root className="grid grid-cols-[auto_auto_1fr] grid-rows-[auto_1fr] relative w-full max-w-(--thread-max-width) py-4">
+      <div className="text-[#1e293b] dark:text-zinc-200 max-w-[calc(var(--thread-max-width)*0.8)] wrap-break-word leading-7 col-span-2 col-start-2 row-start-1 my-1.5 bg-white dark:bg-zinc-800 rounded-3xl px-5 py-2.5 border border-[#e2e8f0] dark:border-zinc-700 shadow-xs">
         <MemoryUI />
         <MarkdownRenderer
           markdownText={markdownText}
@@ -461,7 +461,7 @@ const AssistantActionBar: FC = () => {
     <ActionBarPrimitive.Root
       hideWhenRunning
       autohideFloat="single-branch"
-      className="text-[#475569] dark:text-zinc-300 flex gap-1 col-start-3 row-start-2 ml-1 data-[floating]:bg-white data-[floating]:dark:bg-zinc-800 data-[floating]:absolute data-[floating]:rounded-md data-[floating]:border data-[floating]:border-[#e2e8f0] data-[floating]:dark:border-zinc-700 data-[floating]:p-1 data-[floating]:shadow-sm"
+      className="text-[#475569] dark:text-zinc-300 flex gap-1 col-start-3 row-start-2 ml-1 data-floating:bg-white dark:data-floating:bg-zinc-800 data-floating:absolute data-floating:rounded-md data-floating:border data-floating:border-[#e2e8f0] dark:data-floating:border-zinc-700 data-floating:p-1 data-floating:shadow-xs"
     >
       <ActionBarPrimitive.Copy asChild>
         <TooltipIconButton
@@ -541,8 +541,8 @@ const CircleStopIcon = () => {
 // Component for reuse in mobile drawer
 const ThreadListItem: FC = () => {
   return (
-    <ThreadListItemPrimitive.Root className="data-[active]:bg-[#eef2ff] hover:bg-[#eef2ff] dark:hover:bg-zinc-800 dark:data-[active]:bg-zinc-800 focus-visible:bg-[#eef2ff] dark:focus-visible:bg-zinc-800 focus-visible:ring-[#4f46e5] flex items-center gap-2 rounded-lg transition-all focus-visible:outline-none focus-visible:ring-2">
-      <ThreadListItemPrimitive.Trigger className="flex-grow px-3 py-2 text-start">
+    <ThreadListItemPrimitive.Root className="data-active:bg-[#eef2ff] hover:bg-[#eef2ff] dark:hover:bg-zinc-800 dark:data-active:bg-zinc-800 focus-visible:bg-[#eef2ff] dark:focus-visible:bg-zinc-800 focus-visible:ring-[#4f46e5] flex items-center gap-2 rounded-lg transition-all focus-visible:outline-hidden focus-visible:ring-2">
+      <ThreadListItemPrimitive.Trigger className="grow px-3 py-2 text-start">
         <p className="text-sm">
           <ThreadListItemPrimitive.Title fallback="New Chat" />
         </p>
